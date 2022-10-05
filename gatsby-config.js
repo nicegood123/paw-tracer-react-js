@@ -1,7 +1,28 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Paw Tracer`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: [
+    'gatsby-plugin-top-layout',
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Arvo`,
+          `Raleway`,
+          `Passions Conflict`,
+          `Peralta`,
+          `Fredoka One`,
+          `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+        ],
+        display: 'swap'
+      }
+    }
+  ],
 }

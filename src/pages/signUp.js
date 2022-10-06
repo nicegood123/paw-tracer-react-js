@@ -1,9 +1,13 @@
+import { Grid } from '@mui/material'
 import React from 'react'
 import SignUp from '../components/bodies/SignUp'
 
 const signUp = () => {
   return (
-    <SignUp />
+    <Grid sx={{width:600}}>
+       <SignUp />
+    </Grid>
+   
   )
 }
 

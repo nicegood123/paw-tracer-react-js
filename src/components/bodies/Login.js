@@ -18,7 +18,7 @@ const Login = () => {
         top: '50%',
         left: '50%',
         overflow:'hidden',
-        //border: '2px #06283D solid',
+        border: '1px #7CB2B1 solid',
         transform: 'translate(-50%, -50%)',
         boxShadow:'4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38)'
     }}>
@@ -26,7 +26,7 @@ const Login = () => {
           <Stack direction='column' alignItems='center' sx={{ width:'100%' }}>
            
               <Grid>
-                <img src={Logo} alt='AppLogo' style={{width:250, height: 135}}/>
+                <img src={Logo} alt='AppLogo' style={{width:240, height: 135}}/>
               </Grid>
              
             <Stack direction='row' sx={{mt:13}}>

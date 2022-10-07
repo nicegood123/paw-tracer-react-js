@@ -17,6 +17,7 @@ const SignUp = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
+        border: '3px #7CB2B1 solid',
         boxShadow:'2.0px 6.0px 6.0px hsl(0deg 0% 0% / 0.38)',
         overflow: 'hidden'
     }}>
@@ -35,7 +36,7 @@ const SignUp = () => {
            </Stack>
         </Grid>
 
-        <Grid item sx={{width:'100%', mb:2}}>
+        <Grid item sx={{width:'100%', mb:1}}>
             <SignUpProgress />
         </Grid>
         

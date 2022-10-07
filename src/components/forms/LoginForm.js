@@ -18,28 +18,27 @@ const schema = yup.object({
 
 const LoginForm = () => {
    
-    // const dispatch = useDispatch()
+        // const dispatch = useDispatch()
 
-   //For react hook form
-   const {register, handleSubmit} = useForm({
-    resolver: yupResolver(schema)
-  });
-  
-  const input ={
-   email: '',
-   password: ''
-  }
-   const [data, setData] = React.useState(input)
-   const [warning, setWarning] = React.useState('')
-   const [count, setCount] = React.useState(0)
-   
-   const handleWarning = (bool) => {
-        if (bool){
-           setWarning('Invalid Credentials')
-            setCount(0)
-        }
-   }
-
+    //For react hook form
+    const {register, handleSubmit} = useForm({
+        resolver: yupResolver(schema)
+    });
+    
+    const input ={
+    email: '',
+    password: ''
+    }
+    const [data, setData] = React.useState(input)
+    const [warning, setWarning] = React.useState('')
+    const [count, setCount] = React.useState(0)
+    
+    const handleWarning = (bool) => {
+            if (bool){
+            setWarning('Invalid Credentials')
+                setCount(0)
+            }
+    }
 
     const onSubmit = (data) => {
         const findInput ={
@@ -50,39 +49,6 @@ const LoginForm = () => {
         setCount(1)
         
     }
-
-    
-    // React.useEffect (() => {
-    //     let userResult = User.data ? User.data.data.length : 2;
-    //     let employeeResult = Employee.data ? Employee.data.data.length : 2;
-
-    //     if (User.isSuccess && userResult === 1){
-    //         let role = User.data ? User.data.data[0].role : '';
-    //         let name = '';
-    //         if (role === 'User'){
-    //             name = User.data ? User.data.data[0].name : '';
-    //         }
-    //         else{
-    //             name = User.data ? (User.data.data[0].first_name + ' ' + User.data.data[0].last_name) : '';
-    //         }
-    //         let id = User.data ? User.data.data[0].id : '';
-
-    //         dispatch(setName(name));
-    //         dispatch(setID(id));
-    //         dispatch(setRole(role));
-    //         navigate('/module') ;
-
-    //     } else if (Employee.isSuccess && employeeResult === 1){
-    //         let role = Employee.data ? Employee.data.data[0].role : '';
-    //         dispatch(setRole(role));
-    //         navigate('/module') ;
-    //     }
-
-    //     if (employeeResult === 0 && userResult === 0 && count ===1){
-    //         handleWarning(true)
-    //     }
-    // }, [data])
-    
 
   return (
     <Grid item sx={{
@@ -128,10 +94,10 @@ const LoginForm = () => {
         </Grid>
 
         <Grid sx={{pb:2}}>
-            <Button type='submit'  variant='contained' sx={{width:'100%', backgroundColor:'#7CB2B1', fontFamily: 'Arvo', textTransform:'none', borderRadius: 5, color:'white'}}>
+            <Button type='button' onClick={()  => navigate('/home')} variant='contained' sx={{width:'100%', backgroundColor:'#7CB2B1', fontFamily: 'Arvo', textTransform:'none', borderRadius: 5, color:'white'}}>
                 Login
             </Button>
-            {/* onClick={()  => navigate('/module')} */}
+            {/*  */}
         </Grid>
         </form>
     </Grid>

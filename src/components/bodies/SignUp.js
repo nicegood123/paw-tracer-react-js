@@ -22,7 +22,7 @@ const SignUp = () => {
         overflow: 'hidden'
     }}>
         <Grid item>
-            <img src={Logo} alt='AppLogo' style={{width:120, height: 30}}/>
+            <img src={Logo} alt='AppLogo' style={{width:100, height: 30}}/>
         </Grid>
 
         <Grid item sx={{mt:2}}>

@@ -18,10 +18,10 @@ import {MdSpaceDashboard, MdLocationPin} from 'react-icons/md'
 import {AiOutlineSetting} from 'react-icons/ai'
 import {IoMdNotificationsOutline} from 'react-icons/io'
 import {BsFileEarmarkMedicalFill} from 'react-icons/bs'
-import {FaLaptopMedical} from 'react-icons/fa'
-import Logo from '../../images/PawTracerLogo2.png'
+
 
 import Dashboard from '../parts/Dashboard';
+import SubscriptionPlan from '../parts/SubscriptionPlan';
 
 const drawerWidth = 260;
 const mainMenu = [
@@ -31,15 +31,11 @@ const mainMenu = [
     },
     {
         id: 2,
-        name: 'Medical Records'
-    },
-    {
-        id: 3,
         name: 'Tracking'
     },
     {
-        id: 4,
-        name: 'Subscription Plan'
+        id: 3,
+        name: 'Subscription'
     },
 ];
 const Home = () => {
@@ -52,11 +48,9 @@ const Home = () => {
         if (menuName === 'Dashboard') {
             return <MdSpaceDashboard style={{fontSize:25, color: selectedMenu === 1 ? '#7CB2B1' : 'white'}}/>;
         }else if (menuName === 'Tracking') {
-            return <MdLocationPin style={{fontSize:25, color: selectedMenu === 3 ? '#7CB2B1' : 'white'}}/>;
-        }else if (menuName === 'Medical Records') {
-            return <FaLaptopMedical style={{fontSize:23, color: selectedMenu === 2 ? '#7CB2B1' : 'white'}}/>;
+            return <MdLocationPin style={{fontSize:25, color: selectedMenu === 2 ? '#7CB2B1' : 'white'}}/>;
         }else{
-            return <BsFileEarmarkMedicalFill style={{fontSize:23, color: selectedMenu === 4 ? '#7CB2B1' : 'white'}}/>;
+            return <BsFileEarmarkMedicalFill style={{fontSize:23, color: selectedMenu === 3 ? '#7CB2B1' : 'white'}}/>;
         }  
          
         
@@ -105,8 +99,8 @@ const Home = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            border:'1px solid white',
-            backgroundColor:'rgba(124,178,176,0.7)'
+            borderRight: '1px solid white',
+            backgroundColor:'rgba(124,178,176)'
           },
         }}
         variant="permanent"
@@ -158,13 +152,18 @@ const Home = () => {
         {/* Box that holds the nmain contents */}
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, height:'100%' }}
+        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, height:'100%'}}
       >
         <Toolbar />
 
-        <Grid sx={{width:'100%', height:'100%', position: 'relative'}}>
+        <Grid sx={{width:'100%', display: selectedMenu === 1 ? 'flex' : 'none',}}>
             <Dashboard />
         </Grid>
+
+        <Grid sx={{width:'100%', display: selectedMenu === 3 ? 'flex' : 'none',}}>
+            <SubscriptionPlan />
+        </Grid>
+
 
       </Box>
       

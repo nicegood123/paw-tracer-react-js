@@ -5,7 +5,7 @@ import Home from '../components/bodies/Home'
 const home = () => {
   return (
     <Grid sx={{width:'100%'}}>
-        <Home />
+      <Home />
     </Grid>
   )
 }

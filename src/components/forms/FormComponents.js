@@ -9,7 +9,7 @@ export const SearchField = styled(TextField)(() => ({
   },
   '& .MuiInput-underline:after': {
     borderBottomColor: 'transparent',
-  },
+  },  
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderColor: 'transparent',

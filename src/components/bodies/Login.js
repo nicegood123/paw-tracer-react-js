@@ -2,7 +2,7 @@ import { Grid, Stack, Typography } from '@mui/material'
 import LoginForm from '../forms/LoginForm'
 
 import React from 'react';
-import Logo from '../../images/PawTracerLogo.png'
+import Logo from '../../images/PawTracerLogo2.png'
 import { Link } from 'gatsby';
 
 const Login = () => {
@@ -22,14 +22,14 @@ const Login = () => {
         transform: 'translate(-50%, -50%)',
         boxShadow:'4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38)'
     }}>
-        <Grid item sx={{p:2, pt:13, flexGrow:1, maxWidth:330, height:'100%', backgroundColor: '#7CB2B1'}}>
+        <Grid item sx={{p:2, pt:16, flexGrow:1, maxWidth:330, height:'100%', backgroundColor: '#7CB2B1'}}>
           <Stack direction='column' alignItems='center' sx={{ width:'100%' }}>
            
               <Grid>
-                <img src={Logo} alt='AppLogo' style={{width:240, height: 135}}/>
+                <img src={Logo} alt='AppLogo' style={{width:260, height: 85}}/>
               </Grid>
              
-            <Stack direction='row' sx={{mt:13}}>
+            <Stack direction='row' sx={{mt:16}}>
 
               <Typography align='center' sx={{ fontFamily:'raleway', fontSize:12,  color: '#0F3E47', pb:2}}>
                 Don't have an account?

@@ -12,7 +12,7 @@ import { SearchField } from '../forms/FormComponents';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import PetCard from '../cards/PetCard';
 import MedicalRecordCard from '../cards/MedicalRecordCard';
-
+import NewPetForm from '../forms/NewPetForm';
 
 const samplePets = [
     {
@@ -288,7 +288,7 @@ const Dashboard = () => {
                                 <Divider />
                             </Grid>
 
-                            <Grid sx={{width:'100%', height:430, border: '1px solid black', mt:2, borderRadius:5}}>
+                            <Grid sx={{width:'100%', height:435, border: '1px solid black', mt:2, borderRadius:5}}>
 
                             </Grid>
                         </Stack>
@@ -334,7 +334,7 @@ const Dashboard = () => {
         </Tooltip>
 
         <Dialog open={open} onClose={handleClose} scroll='body'>
-          
+          <NewPetForm onClose={()=>handleClose()}/>
         </Dialog>
         
     </Grid>

@@ -22,6 +22,7 @@ import {BsFileEarmarkMedicalFill} from 'react-icons/bs'
 
 import Dashboard from '../parts/Dashboard';
 import SubscriptionPlan from '../parts/SubscriptionPlan';
+import Tracking from '../parts/Tracking';
 
 const drawerWidth = 260;
 const mainMenu = [
@@ -160,9 +161,14 @@ const Home = () => {
             <Dashboard />
         </Grid>
 
+        <Grid sx={{width:'100%', display: selectedMenu === 2 ? 'flex' : 'none',}}>
+            <Tracking />
+        </Grid>
+
         <Grid sx={{width:'100%', display: selectedMenu === 3 ? 'flex' : 'none',}}>
             <SubscriptionPlan />
         </Grid>
+
 
 
       </Box>

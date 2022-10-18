@@ -1,7 +1,7 @@
 import { Grid, Tooltip,IconButton, Avatar, Typography, Stack } from '@mui/material'
 import React, { useState } from 'react'
 import MyLocationRoundedIcon from '@mui/icons-material/MyLocationRounded';
-import { Login } from '@mui/icons-material';
+import LocationDisabledRoundedIcon from '@mui/icons-material/LocationDisabledRounded';
 
 const PetTrackCard = ({ id, name,  image, longitude, latitude, track, handleClick}) => {
   
@@ -12,10 +12,11 @@ const PetTrackCard = ({ id, name,  image, longitude, latitude, track, handleClic
         direction ='row' 
         alignItems='center' 
         sx={{
-            border:'1px solid #E7E9EB',
-            boxShadow:'1.0px 2.0px 2.0px hsl(0deg 0% 0% / 0.28)',
-            borderRadius:5,
-            p:2
+            //border:'1px solid #E7E9EB',
+            // boxShadow:'1.0px 2.0px 2.0px hsl(0deg 0% 0% / 0.28)',
+            // borderRadius:5,
+            p:2,
+            width:'100%'
         }}
     >
         <Grid sx={{flexGrow:1}}>
@@ -28,30 +29,29 @@ const PetTrackCard = ({ id, name,  image, longitude, latitude, track, handleClic
                             sx={{
                                 width:80,
                                 height:80, 
-                                border: track === 1 ? '4px solid #5a84e7':'4px solid #abb6c3'
                             }}/
                         >
                     </IconButton>
                 </Tooltip>
                 <Stack direction ='column' sx={{ml:4}}>
-                    <Typography variant='h6' sx={{fontFamily:'Arvo', fontWeight:'bold'}}>
+                    <Typography variant='h6' sx={{fontFamily:'Raleway'}}>
                         {name}
                     </Typography>
                     <div style={{height:7}}/>
-                    <Stack direction ='row' alignItems='center'>
+                    {/* <Stack direction ='row' alignItems='center'>
                         <Typography variant='caption' sx={{fontFamily:'Raleway'}}>
-                            <b>Longitude:</b> {longitude}
+                            <b>Coordinates:</b> 
                         </Typography>
-                        <Typography variant='caption' sx={{ml:2, fontFamily:'Raleway'}}>
-                            <b>Latitude:</b> {latitude}
+                        <Typography variant='caption' sx={{ml:1, fontFamily:'Raleway'}}>
+                            [{longitude}, {latitude}] 
                         </Typography>
-                    </Stack>
+                    </Stack> */}
                 </Stack>
             </Stack>
         </Grid>
         <Tooltip title='Track Me'>
-            <IconButton onClick={()=>handleClick(id, name,  image, longitude, latitude)}>
-                <MyLocationRoundedIcon sx={{fontSize:40, color:'#49b68c'}}/>
+            <IconButton onClick={()=>handleClick(id, name,  image, longitude, latitude)} disabled={track === 0}>
+                {track === 0 ? <LocationDisabledRoundedIcon sx={{fontSize:40, color: '#E0DFDF' }}/> : <MyLocationRoundedIcon sx={{fontSize:40, color: '#49b68c'}}/>}
             </IconButton>
         </Tooltip>
     </Stack>

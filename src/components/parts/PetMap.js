@@ -2,6 +2,7 @@ import React from 'react'
 import { MapContainer,Marker, Popup, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet';
+import { Grid } from '@mui/material';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -38,7 +39,7 @@ const samplePets = [
   
 ]
 
-const PetMap = () => {
+const PetMap = ({long, lat, trackMe}) => {
   return (
     <MapContainer style={{height:'88vh', width:'100%'}} center={[7.053365137465563, 125.56270541921515]} zoom={60} scrollWheelZoom={false}>
         <TileLayer
@@ -49,7 +50,7 @@ const PetMap = () => {
         {
           samplePets.map(({id, pet_name, longitude, latitude})=>{
               return(
-                <Marker key={id} position={[longitude, latitude]}>
+                <Marker key={id} position={[longitude, latitude]} >
                   <Popup>
                       {pet_name}
                   </Popup>
@@ -57,6 +58,7 @@ const PetMap = () => {
               );
           })
         }
+     
     </MapContainer>
   )
 }

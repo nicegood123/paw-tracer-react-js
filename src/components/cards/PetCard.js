@@ -4,7 +4,8 @@ import Logo from '../../images/PawTracerLogo5.png';
 import IdBackground from '../../images/mediaOneBackground.webp';
 import RoomRoundedIcon from '@mui/icons-material/RoomRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
-import {FaUserMd} from 'react-icons/fa';
+import {FaRing} from 'react-icons/fa';
+
 
 function PetCard({status, id, name, type, weight, height, breed, image, color, qr}) {
   return (
@@ -148,7 +149,7 @@ function PetCard({status, id, name, type, weight, height, breed, image, color, q
 
                     <Button
                         variant='contained'
-                        startIcon={<FaUserMd />}
+                        startIcon={<FaRing />}
                         sx={{
                             color:'#7CB2B1',
                             textTransform:'none',
@@ -159,7 +160,7 @@ function PetCard({status, id, name, type, weight, height, breed, image, color, q
                             borderRadius:5
                         }}
                     >
-                        My  Vet
+                        My  Collar
                     </Button>
                 </Stack>
             </Stack>

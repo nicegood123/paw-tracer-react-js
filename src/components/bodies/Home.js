@@ -11,6 +11,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
 
 import { Avatar } from '@mui/material';
 
@@ -18,11 +20,14 @@ import {MdSpaceDashboard, MdLocationPin} from 'react-icons/md'
 import {AiOutlineSetting} from 'react-icons/ai'
 import {IoMdNotificationsOutline} from 'react-icons/io'
 import {BsFileEarmarkMedicalFill} from 'react-icons/bs'
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
 
 import Dashboard from '../parts/Dashboard';
 import SubscriptionPlan from '../parts/SubscriptionPlan';
 import Tracking from '../parts/Tracking';
+import { navigate } from 'gatsby';
 
 const drawerWidth = 260;
 const mainMenu = [
@@ -43,6 +48,16 @@ const Home = () => {
 
     const [selectedMenu, setSelectedMenu] = React.useState(1)
     const [menuName, setMenuName] = React.useState('Dashboard')
+    const [auth, setAuth] = React.useState(true);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleMenu = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
  
     const iconChanger = (menuName) => {
         
@@ -81,10 +96,41 @@ const Home = () => {
                     </Tooltip>
                     <div style={{width:2}}/>
                     <Tooltip title='Settings'>
-                        <IconButton color="primary" aria-label="upload picture" component="label">
+                        <IconButton color="primary" aria-label="upload picture" component="label"  onClick={handleMenu}>
                             <AiOutlineSetting style={{fontSize:28, color:'#7CB2B1' }}  />
                         </IconButton>
                     </Tooltip>
+
+                    <Menu
+                      id="menu-appbar"
+                      anchorEl={anchorEl}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                      }}
+                      keepMounted
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      open={Boolean(anchorEl)}
+                      onClose={handleClose}
+                      
+                    >
+                      <MenuItem onClick={handleClose} sx={{p2:5, pr:5}}>
+                        <Stack direction='row' alignItems={'center'}>
+                          <AccountCircleRoundedIcon />
+                          <Typography variant='h6' sx={{fontFamily:'Raleway', ml:1}}>   Profile</Typography> 
+                        </Stack>
+                      </MenuItem>
+
+                      <MenuItem onClick={() => navigate('/')} sx={{p2:5, pr:5}}>
+                        <Stack direction='row' alignItems={'center'}>
+                          <LogoutRoundedIcon />
+                          <Typography variant='h6' sx={{fontFamily:'Raleway', ml:1}}>   Logout</Typography> 
+                        </Stack>
+                      </MenuItem>
+                    </Menu>
                    
                     
                 </Stack>
@@ -118,10 +164,10 @@ const Home = () => {
                 <div style={{width:10}}/>
                 <Stack direction='column'>
                     <Typography sx={{fontFamily:'arvo', fontSize:15, fontWeight:'bold', color: 'white'}}>
-                        John Eliezar Rodis
+                        Ruinze Malinao
                     </Typography>
                     <Typography sx={{fontFamily:'Raleway', fontSize:13, fontWeight:'bold',color: 'white'}}>
-                        ThomasRhodz
+                        Malinao_Ruinz
                     </Typography>
                 </Stack>
             </Stack>

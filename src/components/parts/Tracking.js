@@ -1,8 +1,9 @@
-import { Stack, Grid, Typography, IconButton } from '@mui/material'
+import { Stack, Grid, Typography, IconButton, List, ListItem, ListItemButton, Divider } from '@mui/material'
 import React, { useState } from 'react'
 import PetTrackCard from '../cards/PetTrackCard'
 import PeSelectedtTrackCard from '../cards/PetSelectedTrackCard'
 import PetMap from './PetMap'
+import TrackMe from './TrackMe'
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 
 const samplePets = [
@@ -89,7 +90,6 @@ const Tracking = () => {
                 boxShadow:'2.0px 4.0px 4.0px hsl(0deg 0% 0% / 0.38)',
                 borderRadius:'15px 0px 0px 15px',
                 overflowY:'scroll',
-                p:3
             }}
         >
             <Grid sx={{display:petSelect ? 'flex' : 'none'}}>
@@ -105,20 +105,49 @@ const Tracking = () => {
             
             
             <Grid sx={{display:petSelect ? 'none' : ''}}>
-                <Typography  variant='h5' sx={{fontFamily:'Arvo', mb:2}}>
+                <Typography  variant='h4' sx={{fontFamily:'Arvo', mb:2, mt:3, ml:3}}>
                     My Pets
                 </Typography> 
-                
-                {
-                    samplePets.map(({id, pet_name, image_url, longitude, latitude, collar_status})=>{
-                        return(
-                            <Grid key={id} sx={{mt:2}}> 
-                                <PetTrackCard name={pet_name} image={image_url} longitude={longitude} latitude={latitude} track={collar_status} handleClick={(id, name, image, long, lati)=>handlePetSelect(id, name, image, long, lati)} />
+
+                <List sx={{width:'100%', p:0}}>
+                    <Divider />
+                    {
+                    samplePets.map(({id, pet_name, image_url, longitude, latitude, collar_status}) => {
+                        return (
+                            <Grid item key={id} sx={{width:'100%'}}>
+                                <ListItem key={id} disablePadding >
+                                    <ListItemButton 
+                                        onClick={() => {
+
+                                                collar_status === 1 ? handlePetSelect(id, pet_name, image_url, longitude, latitude) : console.log('Hello')
+                                            }
+                                        } 
+                                    >
+                                        <PetTrackCard name={pet_name} image={image_url} longitude={longitude} latitude={latitude} track={collar_status} handleClick={(id, name, image, long, lati)=>handlePetSelect(id, name, image, long, lati)} />
+                                    </ListItemButton>
+                                </ListItem> 
+                                <Divider/>
                             </Grid>
-                        );
+                        )
                     })
                 }
+                </List>
+                
             </Grid>
+        </Grid>
+
+        <Grid 
+            item 
+            sx={{
+                width:1000,
+                border:'1px solid #E7E9EB',
+                boxShadow:'2.0px 4.0px 4.0px hsl(0deg 0% 0% / 0.38)',
+                borderRadius:'0px 15px 15px 0px',
+                overflow:'hidden',
+                display:petSelect ? 'none' : ''
+            }}
+            >
+            <PetMap />
         </Grid>
 
         <Grid 
@@ -128,10 +157,11 @@ const Tracking = () => {
                 border:'1px solid #E7E9EB',
                 boxShadow:'2.0px 4.0px 4.0px hsl(0deg 0% 0% / 0.38)',
                 borderRadius:'0px 15px 15px 0px',
-                overflow:'hidden'
+                overflow:'hidden',
+                display:petSelect ? '' : 'none'
             }}
             >
-            <PetMap />
+            <TrackMe longitude={longitude} latitude={latitude} name={petName}/>
         </Grid>
     </Stack>
   )

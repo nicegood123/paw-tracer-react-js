@@ -2,6 +2,7 @@ import React from 'react'
 import { MapContainer,Marker, Popup, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet';
+import { Grid } from '@mui/material';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -13,7 +14,7 @@ L.Icon.Default.mergeOptions({
 
 const TrackMe = ({longitude, latitude, name}) => {
   return (
-    <MapContainer style={{height:'88vh', width:'100%'}} center={[7.053365137465563, 125.56270541921515]} zoom={60} scrollWheelZoom={false}>
+    <MapContainer style={{height:'88vh', width:'100%'}} center={[7.089492907598434, 125.58760174485887]} zoom={13} scrollWheelZoom={false}>
         <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -26,6 +27,7 @@ const TrackMe = ({longitude, latitude, name}) => {
         </Marker>
               
     </MapContainer>
+
   )
 }
 
